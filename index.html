@@ -978,21 +978,21 @@
                 <div class="contact-form">
                     <h3>Consult with Our Professionals</h3>
                     <p>Provide your details and we'll get back to you shortly.</p>
-                    <form id="contactForm">
-                        <div class="form-group"><input type="text" class="form-input" placeholder="Full Name" required>
+                    <form id="contactForm" action="https://formspree.io/f/mqakpree" method="POST">
+                        <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Full Name" required>
                         </div>
-                        <div class="form-group"><input type="tel" class="form-input" id="phoneInput" placeholder="Phone Number" required pattern="[0-9]{10}" maxlength="10" minlength="10" title="Please enter a valid 10-digit phone number"></div>
+                        <div class="form-group"><input type="tel" name="phone" class="form-input" id="phoneInput" placeholder="Phone Number" required pattern="[0-9]{10}" maxlength="10" minlength="10" title="Please enter a valid 10-digit phone number"></div>
                         <div class="form-group">
-                            <select class="form-input" required>
+                            <select name="service" class="form-input" required>
                                 <option value="">Select Service</option>
                                 <option>Consultancy</option>
                                 <option>Job Placement</option>
                                 <option>Travels</option>
                             </select>
                         </div>
-                        <div class="form-group"><textarea class="form-input" rows="4"
+                        <div class="form-group"><textarea name="message" class="form-input" rows="4"
                                 placeholder="Your Message"></textarea></div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1085,10 +1085,34 @@
             e.target.value = e.target.value.replace(/[^0-9]/g, '');
         });
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            modal.classList.add('active');
-            form.reset();
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerText;
+            
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    modal.classList.add('active');
+                    form.reset();
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            } catch (error) {
+                alert("Oops! There was a problem submitting your form.");
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
         });
 
         function closeModal() {
