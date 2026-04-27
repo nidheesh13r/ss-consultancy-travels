@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.S Consultancy & Travels | Professional Financial & Travel Services</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        :root {
+            --primary: #0A1C3A;
+            --secondary: #FFB800;
+            --accent: #E63946;
+            --white: #FFFFFF;
+            --light-bg: #F4F7FA;
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+            --shadow-premium: 0 20px 50px rgba(0,0,0,0.1);
+            --glass: rgba(255, 255, 255, 0.85);
+            --glass-blur: blur(15px);
+        }
+
+        /* --- Base Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 100px 0; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+        .btn-primary { background-color: var(--secondary); color: var(--primary); }
+        .btn-primary:active { transform: scale(0.95); }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-box { width: 40px; height: 40px; background: var(--primary); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 10px; }
+        .logo-text { font-size: 1.1rem; font-weight: 800; color: var(--primary); }
+        .logo-text span { color: var(--secondary); }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--secondary); }
+
+        .mobile-toggle { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 28, 58, 0.8), rgba(10, 28, 58, 0.6)), url('professional_consultancy_hero_1777314167459.png') center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 25px; }
+        .hero h1 span { color: var(--secondary); }
+        .hero p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9; text-align: justify; max-width: 700px; }
+        .hero-btns { display: flex; gap: 20px; }
+
+        /* --- About Section --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 30px; box-shadow: var(--shadow-premium); }
+        .about-text h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 25px; }
+        .about-text p { margin-bottom: 20px; color: var(--text-gray); text-align: justify; }
+
+        /* --- Services --- */
+        .services { background-color: var(--light-bg); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
+        .divider { width: 60px; height: 4px; background: var(--secondary); margin: 15px auto; border-radius: 2px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); padding: 45px 35px; border-radius: 30px; transition: var(--transition); box-shadow: var(--shadow-soft); text-align: center; border: 1px solid rgba(0,0,0,0.03); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-premium); }
+        .service-icon { font-size: 3rem; color: var(--secondary); margin-bottom: 25px; }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--primary); }
+        .service-card p { margin-bottom: 25px; text-align: justify; color: var(--text-gray); font-size: 0.95rem; }
+        .service-card ul { list-style: none; text-align: left; }
+        .service-card li { margin-bottom: 12px; padding-left: 30px; position: relative; font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+        .service-card li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; color: var(--secondary); }
+
+        /* --- Contact --- */
+        .contact-section { background: var(--primary); color: var(--white); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+        .contact-info h2 { font-size: 2.8rem; margin-bottom: 30px; color: var(--secondary); }
+        .contact-item { display: flex; gap: 25px; margin-bottom: 35px; }
+        .contact-item i { font-size: 1.5rem; color: var(--secondary); background: rgba(255,255,255,0.05); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 15px; }
+        
+        .contact-form { background: var(--white); padding: 50px; border-radius: 30px; color: var(--text-dark); box-shadow: var(--shadow-premium); }
+        .form-group { margin-bottom: 25px; }
+        .form-input { width: 100%; padding: 15px 20px; border: 1px solid #E2E8F0; border-radius: 12px; font-family: inherit; background: #F8FAFC; transition: 0.3s; }
+        .form-input:focus { outline: none; border-color: var(--secondary); background: var(--white); }
+
+        /* --- Footer --- */
+        footer { background: #050E1D; color: var(--white); padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 50px; }
+        .footer-col h4 { color: var(--secondary); margin-bottom: 25px; font-size: 1.1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--secondary); padding-left: 5px; }
+        .social-links { display: flex; gap: 15px; margin-top: 25px; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
+        .social-links a:hover { background: var(--secondary); color: var(--primary); transform: translateY(-5px); }
+
+        /* --- App UX Elements --- */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 900; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: 0.3s; }
+        .whatsapp-float:active { transform: scale(0.9); }
+
+        .bottom-nav { position: fixed; bottom: 20px; left: 20px; right: 20px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); height: 65px; border-radius: 20px; display: none; justify-content: space-around; align-items: center; box-shadow: var(--shadow-premium); z-index: 1001; border: 1px solid rgba(255,255,255,0.4); }
+        .bottom-nav-item { color: var(--primary); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 800; transition: 0.3s; }
+        .bottom-nav-item i { font-size: 20px; }
+        .bottom-nav-item:active { transform: translateY(-5px); color: var(--secondary); }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .section-padding { padding: 60px 0; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { text-align: center; height: auto; padding: 140px 20px 100px; }
+            .hero p { text-align: center; margin: 0 auto 40px; }
+            .hero-btns { flex-direction: column; width: 100%; }
+            .hero-btns .btn { width: 100%; margin: 0 !important; }
+            
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            
+            .about-text { text-align: center; }
+            .about-text p { text-align: center; }
+            
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-info { text-align: center; }
+            .contact-item { flex-direction: column; align-items: center; gap: 10px; }
+            .contact-form { padding: 30px 20px; }
+            
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .footer-col { text-align: left; }
+            .social-links { justify-content: flex-start; }
+            
+            .bottom-nav { display: flex; }
+            .whatsapp-float { bottom: 100px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-box">SS</div>
+                <div class="logo-text">S.S <span>CONSULTANCY & TRAVELS</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeIn">
+                <h1>Reliable <span>Consultancy & Travel</span> Solutions For Your Future</h1>
+                <p>Providing expert guidance and transparent solutions for all your financial and travel needs in Thiruvallur. Committed to excellence and integrity in every step.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Free Consultation</a>
+                    <a href="#services" class="btn" style="color: white; border: 2px solid white;">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="consultancy_about_team_1777314292193.png" alt="Our Professional Team">
+                </div>
+                <div class="about-text">
+                    <h2>Expert Guidance You Can Trust</h2>
+                    <p>At S.S Consultancy & Travels, we believe in providing personalized solutions to help you achieve your financial and travel goals. Our team of experts brings a fresh perspective and dedication to every client.</p>
+                    <p>Whether you're looking for a home loan, planning an international vacation, or seeking a new career opportunity, we are here to support you with integrity and excellence.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="btn btn-primary">Work With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <div class="divider"></div>
+                <p style="color: var(--text-gray);">Comprehensive solutions tailored to your unique requirements</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Consultancy Services</h3>
+                    <p>Expert financial and compliance solutions for personal and business growth.</p>
+                    <ul>
+                        <li>Home & Personal Loans</li>
+                        <li>Education & Land Loans</li>
+                        <li>Construction Loans</li>
+                        <li>Used Car & Bike Loans</li>
+                        <li>Health & Life Insurance</li>
+                        <li>GST & IT Return Filing</li>
+                        <li>MSME Registration</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Job Placements</h3>
+                    <p>Connecting talented individuals with top-tier career opportunities.</p>
+                    <ul>
+                        <li>Banking Sector Jobs</li>
+                        <li>Private IT Firm Placement</li>
+                        <li>Career Counseling</li>
+                        <li>Skill Assessment</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-plane"></i></div>
+                    <h3>Travel Services</h3>
+                    <p>Seamless national and international travel planning and documentation.</p>
+                    <ul>
+                        <li>Train & Flight Tickets</li>
+                        <li>Tourist Visa Assistance</li>
+                        <li>Passport & PAN Card Apply</li>
+                        <li>Car Rentals</li>
+                        <li>Kerala Tourism Package</li>
+                        <li>Arupadai Temple Package</li>
+                        <li>Dubai & Bangkok Tourism</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p style="opacity: 0.8; margin-bottom: 40px; text-align: justify;">Have a question? Our consultants are ready to assist you with your next big step. Contact us today for a free consultation.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Our Hub</h4>
+                            <p>No: 6, First Floor, Putlur Station Road, Kakkallur, Thiruvallur - 602003</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Direct Line</h4>
+                            <p>+91 8428258775</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@ssconsultancy.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.'); this.reset();">
+                        <div class="form-group"><input type="text" class="form-input" placeholder="Full Name" required></div>
+                        <div class="form-group"><input type="tel" class="form-input" placeholder="Phone Number" required></div>
+                        <div class="form-group">
+                            <select class="form-input" required>
+                                <option value="">Select Service</option>
+                                <option>Consultancy</option>
+                                <option>Job Placement</option>
+                                <option>Travels</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><textarea class="form-input" rows="4" placeholder="Your Message"></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 25px;">
+                        <div class="logo-box" style="background: white; color: var(--primary);">SS</div>
+                        <div class="logo-text" style="color: white;">S.S <span>CONSULTANCY & TRAVELS</span></div>
+                    </a>
+                    <p style="opacity: 0.6; font-size: 0.9rem; text-align: justify;">Your trusted partner for integrated financial and travel solutions, committed to integrity and excellence in service.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Loans & Insurance</a></li>
+                        <li><a href="#">Tax Compliance</a></li>
+                        <li><a href="#">Job Placement</a></li>
+                        <li><a href="#">Global Travels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                &copy; 2026 S.S Consultancy & Travels. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/918428258775" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <div class="bottom-nav">
+        <a href="#home" class="bottom-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="#services" class="bottom-nav-item"><i class="fa-solid fa-layer-group"></i><span>Services</span></a>
+        <a href="https://wa.me/918428258775" class="bottom-nav-item"><i class="fa-brands fa-whatsapp"></i><span>Chat</span></a>
+        <a href="#contact" class="bottom-nav-item"><i class="fa-solid fa-paper-plane"></i><span>Contact</span></a>
+    </div>
+
+</body>
+</html>
