@@ -7,7 +7,7 @@
     <title>S.S Consultancy & Travels | Professional Financial & Travel Services</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <!-- Icons & Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -70,8 +70,8 @@
         .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
         .logo-img { height: 50px; width: auto; object-fit: contain; border-radius: 50%; mix-blend-mode: multiply; transition: transform 0.3s ease; }
         .logo:hover .logo-img { transform: scale(1.1); }
-        .logo-text { font-size: 1.1rem; font-weight: 800; color: var(--primary); letter-spacing: 0.5px; }
-        .logo-text span { color: var(--secondary); }
+        .logo-text { font-size: 1.2rem; font-weight: 700; color: var(--primary); font-family: 'Playfair Display', serif; letter-spacing: 0.5px; }
+        .logo-text span { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; color: var(--secondary); margin-left: 5px; text-transform: uppercase; }
 
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem; transition: var(--transition); }
@@ -193,17 +193,49 @@
         .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
         .footer-links a:hover { color: var(--secondary); padding-left: 5px; }
         .social-links { display: flex; gap: 15px; margin-top: 25px; }
-        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; text-decoration: none; }
         .social-links a:hover { background: var(--secondary); color: var(--primary); transform: translateY(-5px); }
 
         /* --- App UX Elements --- */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 900; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: 0.3s; }
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: #25D366; 
+            color: white; 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 28px; 
+            z-index: 900; 
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); 
+            transition: 0.3s; 
+            text-decoration: none;
+            animation: whatsapp-glow 2s infinite;
+        }
+        @keyframes whatsapp-glow {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); transform: scale(1); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); }
+        }
         .whatsapp-float:active { transform: scale(0.9); }
 
         .bottom-nav { position: fixed; bottom: 20px; left: 20px; right: 20px; background: var(--glass); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); height: 65px; border-radius: 20px; display: none; justify-content: space-around; align-items: center; box-shadow: var(--shadow-premium); z-index: 1001; border: 1px solid rgba(255,255,255,0.4); }
         .bottom-nav-item { color: var(--primary); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 800; transition: 0.3s; }
         .bottom-nav-item i { font-size: 20px; }
         .bottom-nav-item:active { transform: translateY(-5px); color: var(--secondary); }
+
+        /* --- Success Modal --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 2000; opacity: 0; transition: 0.3s; }
+        .modal-card { background: var(--white); padding: 50px; border-radius: var(--border-radius); text-align: center; max-width: 450px; width: 90%; transform: scale(0.8); transition: 0.3s; box-shadow: var(--shadow-premium); border: 1px solid rgba(255,255,255,0.1); }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-overlay.active .modal-card { transform: scale(1); }
+        .modal-icon { width: 80px; height: 80px; background: #22c55e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 25px; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3); }
+        .modal-card h3 { font-size: 2rem; margin-bottom: 15px; color: var(--primary); }
+        .modal-card p { color: var(--text-gray); margin-bottom: 30px; }
 
         /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 992px) {
@@ -394,7 +426,7 @@
                 <div class="contact-form">
                     <h3>Consult with Our Professionals</h3>
                     <p>Provide your details and we'll get back to you shortly.</p>
-                    <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.'); this.reset();">
+                    <form id="contactForm">
                         <div class="form-group"><input type="text" class="form-input" placeholder="Full Name" required></div>
                         <div class="form-group"><input type="tel" class="form-input" placeholder="Phone Number" required></div>
                         <div class="form-group">
@@ -419,12 +451,12 @@
                 <div class="footer-col">
                     <h4>Our Brand</h4>
                     <a href="#" class="logo" style="margin-bottom: 20px;">
-                        <img src="logo.png" alt="S.S Logo" class="logo-img" style="background: white; padding: 5px;">
+                        <img src="logo.png" alt="S.S Logo" class="logo-img" style="background: white; padding: 5px; mix-blend-mode: normal !important;">
                     </a>
-                    <div class="social-links" style="margin-top: 10px;">
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 12px; font-weight: 600; color: var(--secondary);">Follow Us On</p>
+                    <div class="social-links">
                         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://wa.me/918428258775" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                         <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -469,6 +501,40 @@
         <a href="https://wa.me/918428258775" class="bottom-nav-item"><i class="fa-brands fa-whatsapp"></i><span>Chat</span></a>
         <a href="#contact" class="bottom-nav-item"><i class="fa-solid fa-paper-plane"></i><span>Contact</span></a>
     </div>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-check"></i></div>
+            <h3>Thank You!</h3>
+            <p>Your request has been successfully submitted. Our professionals will contact you within 24 hours.</p>
+            <button class="btn btn-primary" style="width: 100%;" onclick="closeModal()">Great, Thanks!</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            form.reset();
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        window.onclick = (e) => {
+            if (e.target == modal) closeModal();
+        };
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').style.display = 
+                document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
 
 </body>
 </html>
