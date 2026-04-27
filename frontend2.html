@@ -7,7 +7,7 @@
     <title>S.S Consultancy & Travels | Professional Financial & Travel Services</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons & Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,25 +15,27 @@
 
     <style>
         :root {
-            --primary: #0A1C3A;
-            --secondary: #FFB800;
-            --accent: #E63946;
+            --primary: #020617;
+            --primary-light: #0F172A;
+            --secondary: #EAB308;
+            --secondary-hover: #CA8A04;
             --white: #FFFFFF;
-            --light-bg: #F4F7FA;
-            --text-dark: #1A1A1A;
-            --text-gray: #666666;
-            --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
-            --shadow-premium: 0 20px 50px rgba(0,0,0,0.1);
-            --glass: rgba(255, 255, 255, 0.85);
-            --glass-blur: blur(15px);
+            --light-bg: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.03);
+            --shadow-premium: 0 30px 60px rgba(0,0,0,0.08);
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-blur: blur(24px);
+            --border-radius: 24px;
         }
 
         /* --- Base Styles --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; background: var(--white); }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.7; overflow-x: hidden; background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 100px 0; }
 
@@ -42,14 +44,15 @@
             padding: 14px 35px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: var(--transition);
             cursor: pointer;
             border: none;
             text-align: center;
         }
-        .btn-primary { background-color: var(--secondary); color: var(--primary); }
-        .btn-primary:active { transform: scale(0.95); }
+        .btn-primary { background-color: var(--secondary); color: var(--primary); box-shadow: 0 4px 14px rgba(234, 179, 8, 0.4); }
+        .btn-primary:hover { background-color: var(--secondary-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(234, 179, 8, 0.5); }
+        .btn-primary:active { transform: translateY(0); }
 
         /* --- Navigation --- */
         nav {
@@ -78,7 +81,7 @@
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(10, 28, 58, 0.8), rgba(10, 28, 58, 0.6)), url('professional_consultancy_hero_1777314167459.png') center/cover;
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.7)), url('professional_consultancy_hero_1777314167459.png') center/cover;
             display: flex;
             align-items: center;
             color: var(--white);
@@ -102,9 +105,9 @@
         .divider { width: 60px; height: 4px; background: var(--secondary); margin: 15px auto; border-radius: 2px; }
         
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .service-card { background: var(--white); padding: 45px 35px; border-radius: 30px; transition: var(--transition); box-shadow: var(--shadow-soft); text-align: center; border: 1px solid rgba(0,0,0,0.03); }
-        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-premium); }
-        .service-icon { font-size: 3rem; color: var(--secondary); margin-bottom: 25px; }
+        .service-card { background: var(--white); padding: 45px 35px; border-radius: var(--border-radius); transition: var(--transition); box-shadow: var(--shadow-soft); text-align: center; border: 1px solid #F1F5F9; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-premium); border-color: #E2E8F0; }
+        .service-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 25px; background: var(--light-bg); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 20px; margin-left: auto; margin-right: auto; }
         .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--primary); }
         .service-card p { margin-bottom: 25px; text-align: justify; color: var(--text-gray); font-size: 0.95rem; }
         .service-card ul { list-style: none; text-align: left; }
@@ -118,10 +121,10 @@
         .contact-item { display: flex; gap: 25px; margin-bottom: 35px; }
         .contact-item i { font-size: 1.5rem; color: var(--secondary); background: rgba(255,255,255,0.05); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 15px; }
         
-        .contact-form { background: var(--white); padding: 50px; border-radius: 30px; color: var(--text-dark); box-shadow: var(--shadow-premium); }
+        .contact-form { background: var(--white); padding: 50px; border-radius: var(--border-radius); color: var(--text-dark); box-shadow: var(--shadow-premium); border: 1px solid #F1F5F9; }
         .form-group { margin-bottom: 25px; }
-        .form-input { width: 100%; padding: 15px 20px; border: 1px solid #E2E8F0; border-radius: 12px; font-family: inherit; background: #F8FAFC; transition: 0.3s; }
-        .form-input:focus { outline: none; border-color: var(--secondary); background: var(--white); }
+        .form-input { width: 100%; padding: 16px 20px; border: 1px solid #E2E8F0; border-radius: 12px; font-family: inherit; background: var(--light-bg); transition: var(--transition); font-size: 0.95rem; }
+        .form-input:focus { outline: none; border-color: var(--secondary); background: var(--white); box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.1); }
 
         /* --- Footer --- */
         footer { background: #050E1D; color: var(--white); padding: 80px 0 30px; }
