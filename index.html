@@ -148,9 +148,9 @@
         .logo-text span {
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 2px;
-            color: var(--secondary);
+            color: #9e7b07;
             margin-left: 5px;
             text-transform: uppercase;
         }
@@ -864,7 +864,7 @@
                     <p>Whether you're looking for a home loan, planning an international vacation, or seeking a new
                         career opportunity, we are here to support you with integrity and excellence.</p>
                     <div style="margin-top: 30px;">
-                        <a href="#contact" class="btn btn-primary">Work With Us</a>
+                        <a href="#contact" class="btn btn-primary">Get Free Support</a>
                     </div>
                 </div>
             </div>
@@ -970,7 +970,7 @@
                         <i class="fa-solid fa-phone"></i>
                         <div>
                             <h4>Call Us Directly</h4>
-                            <p>+91 8428258775 (9 AM - 8 PM)</p>
+                            <p>+91 8428258775, +91 7449084749 (9 AM - 8 PM)</p>
                         </div>
                     </div>
                 </div>
@@ -979,9 +979,12 @@
                     <h3>Consult with Our Professionals</h3>
                     <p>Provide your details and we'll get back to you shortly.</p>
                     <form id="contactForm" action="https://formspree.io/f/xbdqvovy" method="POST">
-                        <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Full Name" required>
+                        <div class="form-group"><input type="text" name="name" class="form-input"
+                                placeholder="Full Name" required>
                         </div>
-                        <div class="form-group"><input type="tel" name="phone" class="form-input" id="phoneInput" placeholder="Phone Number" required pattern="[0-9]{10}" maxlength="10" minlength="10" title="Please enter a valid 10-digit phone number"></div>
+                        <div class="form-group"><input type="tel" name="phone" class="form-input" id="phoneInput"
+                                placeholder="Phone Number" required pattern="[0-9]{10}" maxlength="10" minlength="10"
+                                title="Please enter a valid 10-digit phone number"></div>
                         <div class="form-group">
                             <select name="service" class="form-input" required>
                                 <option value="">Select Service</option>
@@ -992,7 +995,8 @@
                         </div>
                         <div class="form-group"><textarea name="message" class="form-input" rows="4"
                                 placeholder="Your Message"></textarea></div>
-                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Send
+                            Message</button>
                     </form>
                 </div>
             </div>
@@ -1089,7 +1093,7 @@
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
             const originalBtnText = submitBtn.innerText;
-            
+
             submitBtn.innerText = "Sending...";
             submitBtn.disabled = true;
 
